@@ -1,55 +1,41 @@
 import SwiftUI
 
-struct Place: Identifiable {
-    let id = UUID()
-    let name: String
-    let type: String
-    let address: String
-    let price: String
-    let category: String
-}
-
 struct ContentView: View {
-    @State private var places: [Place] = [
-        Place(name: "Brewer's restaurant & Grill", type: "American | Sports Bar", address: "201 N Florence St", price: "$$", category: "🍽️ Dining"),
-        Place(name: "Cactus Jack's", type: "Mexican Restaurant", address: "500 E Cottonwood Ln", price: "$$", category: "🌮 Mexican"),
-        Place(name: "Mi Casagz", type: "Authentic Mexican", address: "1114 E Florence Blvd", price: "$", category: "🌮 Mexican"),
-        Place(name: "Big Deck BBQ", type: "BBQ Restaurant", address: "300 E Cottonwood Ln", price: "$$", category: "🍖 BBQ"),
-        Place(name: "The Hangar", type: "Bar & Grill", address: "201 E Florence St", price: "$$", category: "🍺 Nightlife"),
-        Place(name: "Sullivan's", type: "Steakhouse", address: "1945 E Florence Blvd", price: "$$$", category: "🥩 Fine Dining"),
-        Place(name: "Pita Pit", type: "Mediterranean", address: "1004 E Florence Blvd", price: "$", category: "🥙 Fast Casual"),
-        Place(name: "Sonic", type: "Drive-In", address: "445 E Cottonwood Ln", price: "$", category: "🍦 Fast Food")
-    ]
+    @State private var selectedTab = 0
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(places) { place in
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(place.category)
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                        Text(place.name)
-                            .font(.headline)
-                        Text(place.type)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        HStack {
-                            Image(systemName: "mappin")
-                            Text(place.address)
-                                .font(.caption)
-                            Spacer()
-                            Text(place.price)
-                                .font(.caption)
-                                .foregroundColor(.green)
-                        }
-                        .foregroundColor(.secondary)
-                    }
-                    .padding(.vertical, 8)
+        TabView(selection: $selectedTab) {
+            EventsView()
+                .tabItem {
+                    Label("Events", systemImage: "calendar")
                 }
-            }
-            .navigationTitle("Dining & Nightlife")
+                .tag(0)
+            
+            BusinessDirectoryView()
+                .tabItem {
+                    Label("Discover", systemImage: "magnifyingglass")
+                }
+                .tag(1)
+            
+            MarketplaceView()
+                .tabItem {
+                    Label("Shop", systemImage: "bag")
+                }
+                .tag(2)
+            
+            DatingView()
+                .tabItem {
+                    Label("Dating", systemImage: "heart.fill")
+                }
+                .tag(3)
+            
+            CommunityNewsView()
+                .tabItem {
+                    Label("Community", systemImage: "person.3.fill")
+                }
+                .tag(4)
         }
+        .tint(.blue)
     }
 }
 
