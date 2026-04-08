@@ -19,14 +19,37 @@ struct DatingView: View {
     @State private var matchedProfiles: [DatingProfile] = []
     @State private var showingMatches = false
     @State private var profiles: [DatingProfile] = [
-        DatingProfile(name: "Emily R.", age: 26, bio: "New to Casa Grande! Military spouse, love hiking and trying local restaurants. Looking to make friends and maybe more.", interests: ["Hiking", "Food", "Travel"], lookingFor: "Friends or Relationship", distance: "2 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .pink),
-        DatingProfile(name: "James T.", age: 29, bio: "Air Force Officer at the base. Originally from Texas. Into fitness, football, and finding the best BBQ in AZ.", interests: ["Fitness", "Football", "BBQ"], lookingFor: "Casual or Relationship", distance: "5 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .blue),
-        DatingProfile(name: "Sophia M.", age: 23, bio: "ASU Poly Senior! Business major. Love coffee, live music, and exploring Phoenix on weekends.", interests: ["Coffee", "Music", "Art"], lookingFor: "Friends", distance: "1 mile", isVerified: false, isMilitary: false, isStudent: true, imageColor: .purple),
-        DatingProfile(name: "Michael S.", age: 32, bio: "Software developer, work remote. Looking for someone who appreciates good conversations and bad puns.", interests: ["Tech", "Gaming", "Cooking"], lookingFor: "Relationship", distance: "8 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .green),
-        DatingProfile(name: "Ashley K.", age: 27, bio: "Nurse at the hospital. Snowbird from Chicago, here for the winter. Love yoga, the beach, and meeting locals.", interests: ["Yoga", "Beach", "Meeting New People"], lookingFor: "Friends or Casual", distance: "3 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .orange),
-        DatingProfile(name: "David L.", age: 28, bio: "ASU Poly Graduate Student. Researching renewable energy. Into sustainability, farming, and good conversations.", interests: ["Sustainability", "Farming", "Reading"], lookingFor: "Friends or Relationship", distance: "1 mile", isVerified: true, isMilitary: false, isStudent: true, imageColor: .mint),
-        DatingProfile(name: "Jessica P.", age: 30, bio: "Elementary school teacher in CG. Love kids, arts & crafts, and weekend adventures. Looking for genuine connections.", interests: ["Teaching", "Arts & Crafts", "Adventure"], lookingFor: "Relationship", distance: "4 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .red),
-        DatingProfile(name: "Brandon H.", age: 25, bio: "Just PCS'd to the AFB. From California. Looking to explore CG and meet some cool people.", interests: ["Gaming", "Movies", "Exploring"], lookingFor: "Friends or Casual", distance: "6 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .indigo)
+        // Military Profiles
+        DatingProfile(name: "James T.", age: 29, bio: "Air Force Officer at the base. Originally from Texas. Into fitness, football, and finding the best BBQ in AZ. Let's grab a beer!", interests: ["Fitness", "Football", "BBQ", "Gaming"], lookingFor: "Casual or Relationship", distance: "2 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .blue),
+        DatingProfile(name: "Brandon H.", age: 25, bio: "Just PCS'd to the AFB. From California. Looking to explore CG and meet some cool people. Anyone want to show me around?", interests: ["Gaming", "Movies", "Exploring", "Hiking"], lookingFor: "Friends or Casual", distance: "5 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .indigo),
+        DatingProfile(name: "Marcus W.", age: 31, bio: "Pilot in the Air Force. Been here 2 years now. Looking for someone to explore AZ with. Love road trips and sunsets.", interests: ["Flying", "Road Trips", "Sunsets", "Photography"], lookingFor: "Relationship", distance: "8 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .cyan),
+        DatingProfile(name: "Tyler R.", age: 27, bio: "Air Force Security Forces. Work long hours but weekends are free. Looking for low-key fun and good conversations.", interests: ["Working Out", "Netflix", "Music", "Food"], lookingFor: "Friends or Casual", distance: "3 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .navy),
+        
+        // ASU Poly Student Profiles
+        DatingProfile(name: "Sophia M.", age: 23, bio: "ASU Poly Senior! Business major. Love coffee, live music, and exploring Phoenix on weekends. Looking to meet new people!", interests: ["Coffee", "Music", "Art", "Shopping"], lookingFor: "Friends", distance: "1 mile", isVerified: false, isMilitary: false, isStudent: true, imageColor: .purple),
+        DatingProfile(name: "David L.", age: 28, bio: "ASU Poly Graduate Student. Researching renewable energy. Into sustainability, farming, and good conversations.", interests: ["Sustainability", "Farming", "Reading", "Cooking"], lookingFor: "Friends or Relationship", distance: "1 mile", isVerified: true, isMilitary: false, isStudent: true, imageColor: .mint),
+        DatingProfile(name: "Emma K.", age: 21, bio: "Nursing student at ASU Poly. Future RN! Love helping people. In my free time I do yoga and volunteer.", interests: ["Nursing", "Yoga", "Volunteering", "Netflix"], lookingFor: "Friends or Relationship", distance: "2 miles", isVerified: false, isMilitary: false, isStudent: true, imageColor: .pink),
+        DatingProfile(name: "Noah G.", age: 22, bio: "Engineering student. I'm into robotics and tech. Looking for someone who appreciates a good dad joke.", interests: ["Engineering", "Robotics", "Video Games", "BBQ"], lookingFor: "Friends or Casual", distance: "1 mile", isVerified: false, isMilitary: false, isStudent: true, imageColor: .orange),
+        DatingProfile(name: "Olivia S.", age: 24, bio: "Graduate student in Education. Future teacher! Love kids and making a difference. Let's grab coffee!", interests: ["Teaching", "Kids", "Coffee", "Books"], lookingFor: "Friends or Relationship", distance: "3 miles", isVerified: true, isMilitary: false, isStudent: true, imageColor: .yellow),
+        DatingProfile(name: "Liam M.", age: 23, bio: "Computer Science major. Hackathon champion. Looking for someone who can handle my nerdy humor.", interests: ["Coding", "Gaming", "Anime", "Tech"], lookingFor: "Friends or Casual", distance: "1 mile", isVerified: false, isMilitary: false, isStudent: true, imageColor: .green),
+        
+        // Snowbird Profiles
+        DatingProfile(name: "Ashley K.", age: 55, bio: "Snowbird from Chicago! Here for the winter. Love yoga, the beach, and meeting new people. Let's grab drinks!", interests: ["Yoga", "Beach", "Meeting New People", "Wine"], lookingFor: "Friends or Casual", distance: "4 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .coral),
+        DatingProfile(name: "Robert J.", age: 62, bio: "Retired from Chicago. Homebody who loves gardening and cooking. Looking for someone to share quiet evenings with.", interests: ["Gardening", "Cooking", "Netflix", "Travel"], lookingFor: "Relationship", distance: "6 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .brown),
+        DatingProfile(name: "Linda M.", age: 58, bio: "Recently widowed. Ready to get back out there! Love dancing, travel, and good conversations.", interests: ["Dancing", "Travel", "Conversation", "Dinner"], lookingFor: "Relationship", distance: "5 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .magenta),
+        
+        // Young Professional Profiles
+        DatingProfile(name: "Emily R.", age: 26, bio: "New to Casa Grande! Military spouse, love hiking and trying local restaurants. Looking to make friends and maybe more.", interests: ["Hiking", "Food", "Travel", "Yoga"], lookingFor: "Friends or Relationship", distance: "2 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .pink),
+        DatingProfile(name: "Michael S.", age: 32, bio: "Software developer, work remote. Looking for someone who appreciates good conversations and bad puns.", interests: ["Tech", "Gaming", "Cooking", "Movies"], lookingFor: "Relationship", distance: "7 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .green),
+        DatingProfile(name: "Jessica P.", age: 30, bio: "Elementary school teacher in CG. Love kids, arts & crafts, and weekend adventures. Looking for genuine connections.", interests: ["Teaching", "Arts & Crafts", "Adventure", "Family"], lookingFor: "Relationship", distance: "3 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .red),
+        DatingProfile(name: "Chris H.", age: 34, bio: "Physical therapist at the hospital. Fit, active, and love the outdoors. Looking for someone who enjoys an active lifestyle.", interests: ["Fitness", "Outdoors", "Sports", "Health"], lookingFor: "Relationship", distance: "4 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .teal),
+        DatingProfile(name: "Amanda T.", age: 28, bio: "Nurse at the hospital. Long shifts but when I'm off I love live music, good food, and exploring Arizona.", interests: ["Nursing", "Live Music", "Food", "Travel"], lookingFor: "Friends or Relationship", distance: "5 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .crimson),
+        DatingProfile(name: "Ryan B.", age: 35, bio: "Real estate agent in CG. I love my job and my city! Looking for someone who appreciates a good deal and a good time.", interests: ["Real Estate", "Investing", "Networking", "Golf"], lookingFor: "Friends or Casual", distance: "2 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .gold),
+        DatingProfile(name: "Nicole P.", age: 29, bio: "Marketing manager for a local company. Creative, ambitious, and love a good book. Looking for genuine connection.", interests: ["Marketing", "Reading", "Coffee", "Art"], lookingFor: "Relationship", distance: "6 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .lavender),
+        DatingProfile(name: "Daniel K.", age: 38, bio: "Contractor/handyman. Good with my hands and honest work. Looking for someone who appreciates that.", interests: ["Construction", "DIY", "Fishing", "Grilling"], lookingFor: "Friends or Relationship", distance: "8 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .khaki),
+        DatingProfile(name: "Sarah J.", age: 27, bio: "Veterinarian at the local animal clinic. Animal lover to the core! Looking for someone with a big heart.", interests: ["Animals", "Vet Med", "Hiking", "Wine"], lookingFor: "Friends or Relationship", distance: "3 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .rose),
+        DatingProfile(name: "Jason W.", age: 33, bio: "Firefighter with CG Fire Dept. When I'm not fighting fires I love camping, sports, and cooking.", interests: ["Firefighting", "Camping", "Sports", "Cooking"], lookingFor: "Relationship", distance: "4 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .red),
+        DatingProfile(name: "Michelle L.", age: 31, bio: "HR manager at a local company. Work hard, play hard. Love concerts, travel, and good food.", interests: ["HR", "Concerts", "Travel", "Food"], lookingFor: "Friends or Casual", distance: "5 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .violet)
     ]
     
     var body: some View {
@@ -101,6 +124,15 @@ struct DatingView: View {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
+                        Button(action: { currentIndex = 0 }) {
+                            Text("Start Over")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 24)
+                                .padding(.vertical, 12)
+                                .background(Color.pink)
+                                .cornerRadius(25)
+                        }
                     }
                     .padding()
                 }
@@ -114,6 +146,9 @@ struct DatingView: View {
                         Text("Going Local")
                             .font(.headline)
                         Spacer()
+                        Text("25 mi radius")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
                     Text("See who's checked into venues near you tonight")
                         .font(.caption)
@@ -162,7 +197,7 @@ struct ProfileCardView: View {
                             BadgeView(text: "Military", color: .blue)
                         }
                         if profile.isStudent {
-                            BadgeView(text: "Student", color: .purple)
+                            BadgeView(text: "ASU Poly", color: .purple)
                         }
                         Spacer()
                         BadgeView(text: profile.distance, color: Color.black.opacity(0.6))
@@ -196,14 +231,16 @@ struct ProfileCardView: View {
                     .foregroundColor(.secondary)
                     .lineLimit(3)
                 
-                HStack(spacing: 6) {
-                    ForEach(profile.interests, id: \.self) { interest in
-                        Text(interest)
-                            .font(.caption)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 5)
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(12)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        ForEach(profile.interests, id: \.self) { interest in
+                            Text(interest)
+                                .font(.caption)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(12)
+                        }
                     }
                 }
             }
@@ -287,7 +324,7 @@ struct MatchesView: View {
                     }
                 }
             }
-            .navigationTitle("Your Matches")
+            .navigationTitle("Your Matches (\(matches.count))")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
