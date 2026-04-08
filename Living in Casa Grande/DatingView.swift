@@ -19,7 +19,7 @@ struct DatingView: View {
     @State private var matchedProfiles: [DatingProfile] = []
     @State private var showingMatches = false
     @State private var profiles: [DatingProfile] = [
-        DatingProfile(name: "Emily R.", age: 26, bio: "New to Casa Grande! Military spouse, love hiking and trying local restaurants. Looking to make friends and maybe more", interests: ["Hiking", "Food", "Travel"], lookingFor: "Friends or Relationship", distance: "2 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .pink),
+        DatingProfile(name: "Emily R.", age: 26, bio: "New to Casa Grande! Military spouse, love hiking and trying local restaurants. Looking to make friends and maybe more.", interests: ["Hiking", "Food", "Travel"], lookingFor: "Friends or Relationship", distance: "2 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .pink),
         DatingProfile(name: "James T.", age: 29, bio: "Air Force Officer at the base. Originally from Texas. Into fitness, football, and finding the best BBQ in AZ.", interests: ["Fitness", "Football", "BBQ"], lookingFor: "Casual or Relationship", distance: "5 miles", isVerified: true, isMilitary: true, isStudent: false, imageColor: .blue),
         DatingProfile(name: "Sophia M.", age: 23, bio: "ASU Poly Senior! Business major. Love coffee, live music, and exploring Phoenix on weekends.", interests: ["Coffee", "Music", "Art"], lookingFor: "Friends", distance: "1 mile", isVerified: false, isMilitary: false, isStudent: true, imageColor: .purple),
         DatingProfile(name: "Michael S.", age: 32, bio: "Software developer, work remote. Looking for someone who appreciates good conversations and bad puns.", interests: ["Tech", "Gaming", "Cooking"], lookingFor: "Relationship", distance: "8 miles", isVerified: true, isMilitary: false, isStudent: false, imageColor: .green),
@@ -32,37 +32,34 @@ struct DatingView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Header
                 HStack {
                     Text("Going Local")
                         .font(.title2)
                         .fontWeight(.bold)
-                    
                     Spacer()
-                    
                     Button(action: { showingMatches = true }) {
-                        Image(systemName: "heart.fill")
-                            .font(.title2)
-                            .foregroundColor(.pink)
-                        if !matchedProfiles.isEmpty {
-                            Text("\(matchedProfiles.count)")
-                                .font(.caption)
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(Color.pink)
-                                .clipShape(Capsule())
+                        HStack(spacing: 4) {
+                            Image(systemName: "heart.fill")
+                                .font(.title2)
+                                .foregroundColor(.pink)
+                            if !matchedProfiles.isEmpty {
+                                Text("\(matchedProfiles.count)")
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Color.pink)
+                                    .clipShape(Capsule())
+                            }
                         }
                     }
                 }
                 .padding()
                 
-                // Profile Card
                 if currentIndex < profiles.count {
                     ProfileCardView(profile: profiles[currentIndex])
                         .padding(.horizontal)
                     
-                    // Action Buttons
                     HStack(spacing: 40) {
                         Button(action: { 
                             if currentIndex < profiles.count {
@@ -110,7 +107,6 @@ struct DatingView: View {
                 
                 Spacer()
                 
-                // Going Local Feature
                 VStack(spacing: 8) {
                     HStack {
                         Image(systemName: "location.fill")
@@ -142,7 +138,6 @@ struct ProfileCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Image Placeholder
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(profile.imageColor.gradient)
@@ -154,7 +149,6 @@ struct ProfileCardView: View {
                         .foregroundColor(.white.opacity(0.8))
                 }
                 
-                // Badges
                 VStack {
                     HStack {
                         Spacer()
@@ -177,7 +171,6 @@ struct ProfileCardView: View {
                 .padding(12)
             }
             
-            // Info
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Text("\(profile.name), \(profile.age)")
@@ -203,7 +196,6 @@ struct ProfileCardView: View {
                     .foregroundColor(.secondary)
                     .lineLimit(3)
                 
-                // Interests
                 HStack(spacing: 6) {
                     ForEach(profile.interests, id: \.self) { interest in
                         Text(interest)
